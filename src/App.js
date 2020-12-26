@@ -7,24 +7,9 @@ import {Task} from "./components/Task";
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
-//store
-//actions
+import {rootReducer} from "./redux/reducers/rootReducer";
 
-// const state = {
-//     counter: 0
-// }
-// reducers
-const reducer = (state = 0, action) => {
-    switch (action.type) {
-        case('increment'):
-            return state + 1;
-        default:
-            return state
-    }
-}
-//dispatch
-
-const store = createStore(reducer)
+const store = createStore(rootReducer)
 
 function App() {
   return (

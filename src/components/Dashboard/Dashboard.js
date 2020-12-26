@@ -1,13 +1,18 @@
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import React from "react";
+import React, {useEffect} from "react";
 import Typography from "@material-ui/core/Typography";
 import {DashboardTask} from "../DashboardTask";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {Button} from "@material-ui/core";
-import {increment} from "../../redux/increment";
+import {incrementCounter} from "../../redux/actions/incrementCounter";
+import {decrementCounter} from "../../redux/actions/decrementCounter";
+
+import tasksMock from '../../mocks/tasks.json'
+
+console.log(tasksMock)
 
 const columns = [
     {id: 0, label: 'To Do'},
@@ -34,11 +39,10 @@ const tasks = [
     },
 ]
 
-
 export const Dashboard = () => {
     const dispatch = useDispatch();
+    const countNumber = useSelector(state => {return state.counter.counter});
 
-    const countNumber = useSelector(state => {return state})
     return (
         <Container>
             <h1>Dashboard page {countNumber}</h1>
@@ -69,7 +73,8 @@ export const Dashboard = () => {
                         }
                 </Grid>
             </Box>
-            <Button onClick={() => dispatch(increment())} variant="contained">increment</Button>
+            <Button onClick={() => dispatch(incrementCounter())} variant="contained">increment</Button>
+            <Button onClick={() => dispatch(decrementCounter())} variant="contained" color="primary">decrement</Button>
 
         </Container>
     )

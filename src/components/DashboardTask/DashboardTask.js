@@ -18,7 +18,7 @@ export const DashboardTask = (props) => {
                     <Typography variant="subtitle2">{props.data.status}</Typography>
                 </Box>
                 <Box display="flex" justifyContent="space-between" alignItems="center">
-                    <Box display="flex" alignItems="center" mb={2}>
+                    <Box display="flex" alignItems="center">
                         <Typography variant="subtitle2"> <strong> Story points:</strong> </Typography>
                         <Box ml={1}>
                             <Chip label={props.data.storyPoints} size="small"/>

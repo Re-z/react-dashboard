@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 
 export const Task = (props) => {
     const {id} = props.match.params
-    const counter = useSelector(state => {return state})
+    const counter = useSelector(state => {return state.counter.counter})
     return (
         <Container>
             <h1>Hello from task {counter}</h1>
